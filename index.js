@@ -9,7 +9,7 @@ client.on("ready", () => {
 
 client.on("messageCreate", (message) => {
   console.log(message);
-  if (message === "ping") {
+  if (message.content === "ping") {
     message.reply({
       content: "pong",
     });
