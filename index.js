@@ -8,6 +8,7 @@ client.on("ready", () => {
 });
 
 client.on("messageCreate", (message) => {
+  console.log(message);
   if (message === "ping") {
     message.reply({
       content: "pong",
