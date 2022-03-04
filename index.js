@@ -7,4 +7,12 @@ client.on("ready", () => {
   console.log("The client is ready!");
 });
 
+client.on("messageCreate", (message) => {
+  if (message === "ping") {
+    message.reply({
+      content: "pong",
+    });
+  }
+});
+
 client.login(process.env.DJS_TOKEN);
