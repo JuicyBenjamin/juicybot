@@ -1,15 +1,17 @@
 import DiscordJS, { Intents } from 'discord.js'
+import dotenv from 'dotenv'
+dotenv.config()
+
 const client = new DiscordJS.Client({
   intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES],
 })
 
 client.on('ready', () => {
-  console.log('The client is ready!')
+  console.log('The bot is ready')
 })
 
 client.on('messageCreate', (message) => {
-  console.log(message)
-  if (message.content.toLowerCase() === 'ping') {
+  if (message.content.toLocaleLowerCase() === 'ping') {
     message.reply({
       content: 'pong',
     })

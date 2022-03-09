@@ -1,20 +1,24 @@
 {
-  "name": "juicydiscordbot",
+  "name": "juicybot",
   "version": "1.0.0",
   "description": "",
-  "main": "index.ts",
-  "type": "module",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "ts-node index.ts"
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/benj924c/juicybot.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/benj924c/juicybot/issues"
+  },
+  "homepage": "https://github.com/benj924c/juicybot#readme",
   "dependencies": {
-    "awesome-typescript-loader": "^5.2.1",
     "discord.js": "^13.6.0",
-    "dotenv": "^16.0.0",
-    "source-map-loader": "^3.0.1"
+    "dotenv": "^16.0.0"
   }
 }
