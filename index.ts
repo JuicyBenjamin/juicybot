@@ -1,5 +1,6 @@
-import DiscordJS, { Intents } from 'discord.js'
-import dotenv from 'dotenv'
+import * as DiscordJS from 'discord.js'
+import { Intents } from 'discord.js'
+import * as dotenv from 'dotenv'
 dotenv.config()
 
 const client = new DiscordJS.Client({
