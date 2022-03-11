@@ -9,6 +9,12 @@ var client = new DiscordJS.Client({
 });
 client.on('ready', function () {
     console.log('The bot is ready');
+    if (client.user) {
+        client.user.setActivity('The demise of Botnex!', { type: 'WATCHING' });
+    }
+    else {
+        console.log('Benji you idiot, this fucking thing is null');
+    }
 });
 client.on('messageCreate', function (message) {
     if (message.content.toLocaleLowerCase() === 'ping') {

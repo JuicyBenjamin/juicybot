@@ -9,6 +9,11 @@ const client = new DiscordJS.Client({
 
 client.on('ready', () => {
   console.log('The bot is ready')
+  if (client.user) {
+    client.user.setActivity('The demise of Botnex!', { type: 'WATCHING' })
+  } else {
+    console.log('Benji you idiot, this fucking thing is null')
+  }
 })
 
 client.on('messageCreate', (message) => {
