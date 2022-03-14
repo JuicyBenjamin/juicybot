@@ -4,7 +4,8 @@ import * as dotenv from 'dotenv'
 dotenv.config()
 
 const client = new DiscordJS.Client({
-  intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES],
+  partials: ['CHANNEL'],
+  intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.DIRECT_MESSAGES, Intents.FLAGS.DIRECT_MESSAGE_TYPING],
 })
 
 client.on('ready', () => {
@@ -26,6 +27,27 @@ client.on('messageCreate', (message) => {
     message.reply({
       content: 'ß',
     })
+  }
+
+  if (message.channel.type == 'DM') {
+    console.log(message.author)
+    if (message.author.id == process.env.JIB) {
+      console.log(message.content)
+      ;async () => {
+        const copyPasta = process.env.COPYPASTA ?? 'null'
+        const rawResponse = await fetch(copyPasta, {
+          method: 'POST',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(message.content),
+        })
+        const content = await rawResponse.json()
+
+        console.log(content)
+      }
+    }
   }
 })
 
