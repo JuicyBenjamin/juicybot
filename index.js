@@ -22,5 +22,10 @@ client.on('messageCreate', function (message) {
             content: 'pong'
         });
     }
+    if (message.content.toLocaleLowerCase() === 'b') {
+        message.reply({
+            content: 'ß'
+        });
+    }
 });
 client.login(process.env.DJS_TOKEN);
