@@ -31,7 +31,7 @@ client.on('messageCreate', (message) => {
 
   if (message.channel.type == 'DM') {
     console.log(message.author)
-    if (message.author.id == process.env.JIB) {
+    if (message.author.id == process.env.JIB || message.author.id == process.env.JUICYBENJAMIN) {
       console.log(message.content)
       ;async () => {
         const copyPasta = process.env.COPYPASTA ?? 'null'
