@@ -74,7 +74,7 @@ client.on('messageCreate', function (message) {
                 return __generator(this, function (_b) {
                     switch (_b.label) {
                         case 0:
-                            copyPasta = (_a = process.env.COPYPASTA) !== null && _a !== void 0 ? _a : 'null';
+                            copyPasta = (_a = "".concat(process.env.COPYPASTA, ".json")) !== null && _a !== void 0 ? _a : 'null';
                             return [4 /*yield*/, fetch(copyPasta, {
                                     method: 'POST',
                                     headers: {

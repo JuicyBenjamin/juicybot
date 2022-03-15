@@ -34,7 +34,7 @@ client.on('messageCreate', (message) => {
     if (message.author.id == process.env.JIB || message.author.id == process.env.JUICYBENJAMIN) {
       console.log(message.content)
       ;async () => {
-        const copyPasta = process.env.COPYPASTA ?? 'null'
+        const copyPasta = `${process.env.COPYPASTA}.json` ?? 'null'
         const rawResponse = await fetch(copyPasta, {
           method: 'POST',
           headers: {
