@@ -1,5 +1,6 @@
 import * as DiscordJS from 'discord.js'
 import { Intents } from 'discord.js'
+import axios from 'axios'
 import * as dotenv from 'dotenv'
 dotenv.config()
 
@@ -33,20 +34,13 @@ client.on('messageCreate', (message) => {
     console.log(message.author)
     if (message.author.id == process.env.JIB || message.author.id == process.env.JUICYBENJAMIN) {
       console.log(message.content)
-      ;async () => {
-        const copyPasta = `${process.env.COPYPASTA}.json` ?? 'null'
-        const rawResponse = await fetch(copyPasta, {
-          method: 'POST',
-          headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(message.content),
+      axios
+        .post(`${process.env.COPYPASTA}stories.json`, {
+          story: message.content,
         })
-        const content = await rawResponse.json()
-
-        console.log(content)
-      }
+        .then((response) => {
+          console.log(response)
+        })
     }
   }
 })
