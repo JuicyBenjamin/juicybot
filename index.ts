@@ -30,6 +30,15 @@ client.on('messageCreate', (message) => {
     })
   }
 
+  if (message.content.toLocaleLowerCase() === '!pasta') {
+    axios.get(`${process.env.COPYPASTA}stories.json`).then((resp) => {
+      Object.keys(resp.data).forEach((key) => {
+        console.log(key.story)
+      })
+    })
+    // message.channel.send("Once JIB has made a library of copy pasta I'll start sending them")
+  }
+
   if (message.channel.type == 'DM') {
     console.log(message.author)
     if (message.author.id == process.env.JIB || message.author.id == process.env.JUICYBENJAMIN) {
